@@ -1,0 +1,25 @@
+<div id='banner'>
+  <h1>Mister Cocktail</h1>
+</div>
+
+<div class='container'>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card">
+        <div class="card-description">
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </div>
+        <div class="card-delete">
+          <%= link_to '', cocktail_path(cocktail),
+              method: :delete,
+                data: { confirm: 'Are you sure?' },
+                  class: "far fa-trash-alt" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+<%= link_to 'Add a new cocktail', new_cocktail_path, class: 'btn btn-primary' %>
+  </div>
+</div>
